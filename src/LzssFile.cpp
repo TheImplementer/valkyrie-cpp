@@ -3,7 +3,8 @@
 
 #include "LzssFile.hpp"
 
-void LzssFile::parse(std::istream& stream)
+void
+LzssFile::parse(std::istream& stream)
 {
 	assert(stream.good());
 	
@@ -11,26 +12,25 @@ void LzssFile::parse(std::istream& stream)
 	stream.read(signature, SIGNATURE_SIZE);
 	
 	Decompressor* decompressor = nullptr;
-	for (auto it = decompressors_.begin(); it != decompressors_.end(); it++)
-	{
-		if ((*it)->accept(std::string(signature)))
-		{
+	for (auto it = decompressors_.begin(); it != decompressors_.end(); it++) {
+		if ((*it)->accept(std::string(signature))) {
 			decompressor = *it;
 		}
 	}
 	
-	if (decompressor == nullptr)
-	{
+	if (decompressor == nullptr) {
 		throw std::runtime_error("unsupported file compression");
 	}
 }
 
-void LzssFile::setDecompressors(const std::vector<Decompressor*>& decompressors)
+void
+LzssFile::setDecompressors(const std::vector<Decompressor*>& decompressors)
 {
 	decompressors_ = decompressors;
 }
 
-std::vector<Decompressor*> LzssFile::getDecompressors() const
+std::vector<Decompressor*>
+LzssFile::getDecompressors() const
 {
 	return decompressors_;
 }
