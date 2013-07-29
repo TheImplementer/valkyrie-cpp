@@ -1,4 +1,4 @@
-#include "Decompressor.hpp"
+#include "decompressor.hpp"
 
 Decompressor::~Decompressor()
 {

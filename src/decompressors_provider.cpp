@@ -1,4 +1,4 @@
-#include "DecompressorsProvider.hpp"
+#include "decompressors_provider.hpp"
 
 std::vector<Decompressor*>
 DecompressorsProvider::provide()
