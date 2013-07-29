@@ -3,12 +3,12 @@
 
 #include <vector>
 
-#include "Decompressor.hpp"
+#include "decompressor_factory.hpp"
 
 class DecompressorsProvider
 {
 	public:
-		static std::vector<Decompressor*> provide();
+        static std::vector<DecompressorFactory> provide();
 };
 
 #endif

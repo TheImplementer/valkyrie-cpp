@@ -1,7 +1,11 @@
 #include "decompressors_provider.hpp"
+#include "zero_decompressor_factory.hpp"
 
-std::vector<Decompressor*>
+std::vector<DecompressorFactory>
 DecompressorsProvider::provide()
 {
-	return std::vector<Decompressor*>();
+
+    const std::vector<DecompressorFactory> factories();
+    factories.push_back(ZeroDecompressorFactory());
+    return factories;
 }
